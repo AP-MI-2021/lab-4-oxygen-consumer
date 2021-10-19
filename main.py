@@ -1,3 +1,28 @@
+def get_multiples(lst):
+    lst.sort()
+    multiples = []
+
+    for i in range(1, len(lst)):
+        if lst[i] == lst[i - 1]:
+            if len(multiples) == 0 or multiples[len(multiples) - 1] != lst[i]:
+                multiples.append(lst[i])
+
+    return multiples
+
+
+def run_get_multiples(lst):
+    multiples = get_multiples(lst)
+    if multiples == []:
+        print("UNIC")
+    else:
+        print(multiples)
+
+
+def test_get_multiples():
+    assert get_multiples(['aaa', 'bbb', 'cmtc', 'drd', 'aaa']) == ['aaa']
+    assert get_multiples([]) == []
+
+
 def get_if_its_present(lst, elem) -> bool:
     for i in lst:
         if elem == i:
@@ -26,12 +51,14 @@ m. Afisare meniu
 x. Iesite
 
 1. Verificare daca un element dat este in lista
+2. Afisarea tuturor elementelor ce apar de cel putin 2 ori in lista
 """
     print(menu)
 
 
 def run_tests():
     test_get_if_its_present()
+    test_get_multiples()
 
 
 def input_list():
@@ -59,6 +86,8 @@ def main():
 
         elif option == "1":
             run_get_if_its_present(lst)
+        elif option == "2":
+            run_get_multiples(lst)
 
         else:
             print("Optiune inexistenta!")
