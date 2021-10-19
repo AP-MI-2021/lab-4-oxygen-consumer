@@ -1,4 +1,7 @@
 def get_most_frec(lst):
+"""
+Determina care este cel mai frecvent intalnit caracter si returneaza un tuple format din acesta si frecventa lui.
+"""
     all_freq = {}
 
     for elem in lst:
@@ -20,6 +23,9 @@ def get_most_frec(lst):
 
 
 def replace_string_with_most_frec(lst):
+"""
+Inlocuieste elementele care contin cel mai frecvent caracter cu frecventa acestuia.
+"""
     tmp = get_most_frec(lst)
     most_frec = tmp[0]
     frec = tmp[1]
@@ -46,6 +52,9 @@ def test_replace_string_with_most_frec():
 
 
 def is_palindrome(n):
+"""
+Determina daca un nr este palindrom.
+"""
     length = len(n)
     ans = True
     for i in range(length // 2):
@@ -56,6 +65,9 @@ def is_palindrome(n):
 
 
 def get_palindromes(lst):
+"""
+Returneaza o lista ce contine toate elementele palindrome.
+"""
     palindromes = []
     for i in lst:
         if is_palindrome(i):
@@ -74,6 +86,9 @@ def test_get_palindromes():
 
 
 def get_multiples(lst):
+"""
+Returneaza o lista cu toate elemntele ce apar de cel putin 2 ori.
+"""
     lst.sort()
     multiples = []
 
@@ -99,6 +114,9 @@ def test_get_multiples():
 
 
 def get_if_its_present(lst, elem) -> bool:
+"""
+Determina daca un element este prezent in lista.
+"""
     for i in lst:
         if elem == i:
             return True
