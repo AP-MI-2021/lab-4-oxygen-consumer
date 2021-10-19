@@ -1,3 +1,50 @@
+def get_most_frec(lst):
+    all_freq = {}
+
+    for elem in lst:
+  
+        for i in elem:
+            if i in all_freq:
+                all_freq[i] += 1
+            else:
+                all_freq[i] = 1
+
+    ans = "a"
+    frec_ans = 0
+    for i in all_freq.keys():
+        if all_freq[i] > frec_ans:
+            ans = i
+            frec_ans = all_freq[i]
+
+    return (ans, frec_ans)
+
+
+def replace_string_with_most_frec(lst):
+    tmp = get_most_frec(lst)
+    most_frec = tmp[0]
+    frec = tmp[1]
+
+    ans = []
+    
+    for i in lst:
+        if most_frec in i:
+            ans.append(frec)
+        else:
+            ans.append(i)
+
+    return ans
+
+
+def run_replace_string_with_most_frec(lst):
+    replaced = replace_string_with_most_frec(lst)
+    print(replaced)
+
+
+def test_replace_string_with_most_frec():
+    assert replace_string_with_most_frec([]) == []
+    assert replace_string_with_most_frec(['aaa', 'bbab', 'caamtc', 'drd', 'aaa']) == [9, 9, 9, 'drd', 9]
+
+
 def is_palindrome(n):
     length = len(n)
     ans = True
@@ -81,6 +128,7 @@ x. Iesite
 1. Verificare daca un element dat este in lista
 2. Afisarea tuturor elementelor ce apar de cel putin 2 ori in lista
 3. Afisarea tuturor elementelor care sunt palindrom
+4. Afisarea liste obtinute prin inlocuirea elementelor care contin cel mai des intalnit element cu frecventa acestuia
 """
     print(menu)
 
@@ -89,6 +137,7 @@ def run_tests():
     test_get_if_its_present()
     test_get_multiples()
     test_get_palindromes()
+    test_replace_string_with_most_frec()
 
 
 def input_list():
@@ -120,6 +169,8 @@ def main():
             run_get_multiples(lst)
         elif option == "3":
             run_get_palindromes(lst)
+        elif option == "4":
+            run_replace_string_with_most_frec(lst)
 
         else:
             print("Optiune inexistenta!")
