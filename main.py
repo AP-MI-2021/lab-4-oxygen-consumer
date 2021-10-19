@@ -1,3 +1,31 @@
+def is_palindrome(n):
+    length = len(n)
+    ans = True
+    for i in range(length // 2):
+        if n[i] != n[length - i - 1]:
+            ans = False
+
+    return ans
+
+
+def get_palindromes(lst):
+    palindromes = []
+    for i in lst:
+        if is_palindrome(i):
+            palindromes.append(i)
+    return palindromes
+
+
+def run_get_palindromes(lst):
+    palindromes = get_palindromes(lst)
+    print(palindromes)
+
+
+def test_get_palindromes():
+    assert get_palindromes(['aaa', 'bbb', 'cmtc', 'drd', 'aaa']) == ['aaa', 'bbb', 'drd', 'aaa']
+    assert get_palindromes([]) == []
+
+
 def get_multiples(lst):
     lst.sort()
     multiples = []
@@ -52,6 +80,7 @@ x. Iesite
 
 1. Verificare daca un element dat este in lista
 2. Afisarea tuturor elementelor ce apar de cel putin 2 ori in lista
+3. Afisarea tuturor elementelor care sunt palindrom
 """
     print(menu)
 
@@ -59,6 +88,7 @@ x. Iesite
 def run_tests():
     test_get_if_its_present()
     test_get_multiples()
+    test_get_palindromes()
 
 
 def input_list():
@@ -88,6 +118,8 @@ def main():
             run_get_if_its_present(lst)
         elif option == "2":
             run_get_multiples(lst)
+        elif option == "3":
+            run_get_palindromes(lst)
 
         else:
             print("Optiune inexistenta!")
