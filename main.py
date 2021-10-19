@@ -2,8 +2,10 @@ def print_menu():
     menu = """
 i. Citire lista
 l. Afisare lista
+m. Afisare meniu
 x. Iesite
 """
+    print(menu)
 
 
 def input_list():
@@ -13,9 +15,20 @@ def input_list():
 
 def main():
     print_menu()
+    lst = []
 
-    option = input("Introduceti optiunea: ")
+    while True:
+        option = input("Introduceti optiunea: ")
 
-    if option == "i":
-        input_list()
+        if option == "i":
+            lst = input_list()
+        elif option == "x":
+            break
+        elif option == "l":
+            print(lst)
+        elif option == "m":
+            print_menu()
 
+
+if __name__ == "__main__":
+    main()
